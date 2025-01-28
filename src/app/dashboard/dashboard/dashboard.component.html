@@ -1,0 +1,71 @@
+<div class="flex full-width wrap gap-1em">
+    <mat-card class="padding-5px border-box gap-05em card2">
+        <h3 class="no-margin">Appointments:</h3>
+        <full-calendar [options]="calendarOptions"></full-calendar>
+    </mat-card>
+    <mat-card class="padding-5px border-box gap-05em card2">
+        <h3 class="no-margin">On-boarded Stylist List</h3>
+        <section class="example-container mat-elevation-z8" tabindex="0">
+            <table mat-table [dataSource]="dataSource">
+          
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> <strong>Name</strong> </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+
+              <!-- Contact Column -->
+              <ng-container matColumnDef="contact">
+                <th mat-header-cell *matHeaderCellDef> <strong>Contact</strong> </th>
+                <td mat-cell *matCellDef="let element"> {{element.contact}} </td>
+              </ng-container>
+          
+              <!-- ID Column -->
+              <ng-container matColumnDef="ID">
+                <th mat-header-cell *matHeaderCellDef> <strong>ID</strong> </th>
+                <td mat-cell *matCellDef="let element"> {{element.ID}} </td>
+              </ng-container>
+          
+              <!-- location Column -->
+              <ng-container matColumnDef="location">
+                <th mat-header-cell *matHeaderCellDef> <strong>Location</strong> </th>
+                <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+              </ng-container>
+          
+              <!-- specialize Column -->
+              <ng-container matColumnDef="specialize">
+                <th mat-header-cell *matHeaderCellDef> <strong>Specialize</strong> </th>
+                <td mat-cell *matCellDef="let element"> {{element.specialize}} </td>
+              </ng-container>
+
+              <!-- dateAdded Column -->
+              <ng-container matColumnDef="dateAdded">
+                <th mat-header-cell *matHeaderCellDef> <strong>Date Added</strong> </th>
+                <td mat-cell *matCellDef="let element"> {{element.dateAdded}} </td>
+              </ng-container>
+
+              <!-- status Column -->
+              <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> <strong>Status</strong> </th>
+                <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+              </ng-container>
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </section>
+          
+    </mat-card>
+    <mat-card class="flex column padding-5px gap-05em border-box card">
+        <div>
+            <p class="no-margin"><small>Users</small></p>
+            <h3 class="no-margin">20</h3>
+        </div>
+        <div class="flex center-center">
+            <canvas  id="MyChart" >{{ chart }}</canvas>
+        </div>
+        <div class="flex center-center">
+            <button mat-stroked-button class="white green-bg">View All</button>
+        </div>
+    </mat-card>
+</div>

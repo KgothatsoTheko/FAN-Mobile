@@ -1,0 +1,86 @@
+<div class="full-width flex column pop full-height">
+    <div class="main-container">
+        <mat-toolbar class="full-width flex space-between-center no-padding">
+            <div class="flex row">
+                <a [routerLink]="['/landing']" class="flex row no-decoration">
+                    <div class="full-width flex">
+                        <img src="../../../assets/logo-removebg-preview (2).png" alt="logo" width="100%" height="64px">
+                    </div>
+                    <div class="flex column center-center">
+                        <h4 class="no-margin white bolder">Loc & Go</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="flex row white">
+                <button mat-icon-button matTooltip="Home" (click)="goHome()">
+                    <mat-icon>home</mat-icon>
+                </button>
+                <button mat-icon-button matTooltip="Shopping Cart">
+                    <mat-icon>shopping_cart</mat-icon>
+                </button>
+                <div class="flex center-center m-r-15px">
+                    <button mat-stroked-button class="white green-bg" (click)="goToLogin()">Login</button>
+                </div>
+                <!-- <mat-divider></mat-divider>
+                <button mat-icon-button matTooltip="Wishlist">
+                    <mat-icon>favorite</mat-icon>
+                </button>
+                <button mat-icon-button matTooltip="Shopping Cart">
+                    <mat-icon>shopping_cart</mat-icon>
+                </button> -->
+            </div>
+    </mat-toolbar>
+        <!-- Banner -->
+        <div class="banner">
+            <div class="banner-content white">
+                <h2>Welcome to <br><span class="light-green">Loc & Go</span></h2>
+                <p>Convient mobile beauty services, <br> HAIR | MAKEUP | NAILS</p>
+                <div class="flex center-center">
+                    <button mat-stroked-button class="white green-bg" (click)="goToBooking()">Book Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured -->
+        <section class="p-1em">
+            <h2 class="text-center m-b-1em">Featured</h2>
+            <div class="row flex end con1">
+                <div class="container make100p">
+                    <app-slider [slides]="slides"></app-slider>
+                </div>
+                <div class="text-center flex column container make100p">
+                    <section>
+                        <h3 class="text-center">About</h3>
+                        <p>Experience beauty and grooming services in the comfort of your own home. Simply let us know when and where you need our skilled professionals, and we’ll take care of the rest. Sit back, relax, and enjoy the convenience of top-notch service at your doorstep. With our highly trained specialists on our team, we ensure exceptional quality tailored to your needs.</p>
+                    </section>
+                    <section>
+                        <h3 class="text-center">How To Get Started:</h3>
+                        <p>Follow Our simple and efficient booking process here:</p>
+                        <div class="center-center flex">
+                            <button mat-stroked-button class="white green-bg" (click)="goToBooking()">Book Now</button>
+                        </div>
+                        <p class="text-center">OR</p>
+                        <p>Use WhatsApp or Instagram</p>
+                        <div class="row flex center-center gap-2em">
+                            <div>
+                                <a class="no-decoration" href="https://www.instagram.com/fanmobilesalon?igsh=MXVlanR4dWE0eWx2Zg=="><i class="fa fa-instagram" style="font-size:35px"></i></a>
+                            </div>
+                            <div>
+                                <a class="no-decoration" href="https://wa.me/27727470809?text=Hello%20I%20want%20to%20book%20an%20appointment">
+                                    <i class="fa fa-whatsapp" style="font-size:35px"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <!-- <section>
+            <h2 class="text-center m-b-1em">Featured Products</h2>
+            <app-slider [cardType]="'square'" [data]="featuredProducts"></app-slider>
+        </section> -->
+    </div>
+</div>
+  

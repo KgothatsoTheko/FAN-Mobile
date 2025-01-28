@@ -1,0 +1,43 @@
+<div class="full-width flex column pop full-height">
+    <div class="home-bg full-width">
+        <mat-toolbar class="full-width flex space-between-center no-padding">
+            <div class="flex row">
+                <a [routerLink]="['/landing']" class="flex row no-decoration">
+                    <div class="full-width flex">
+                        <img src="../../../assets/logo-removebg-preview (2).png" alt="logo" width="100%" height="64px">
+                    </div>
+                    <div class="flex column center-center">
+                        <h4 class="no-margin black bolder">Loc & Go</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="flex row black">
+                <button mat-icon-button matTooltip="Home" (click)="goHome()">
+                    <mat-icon>home</mat-icon>
+                </button>
+                <button mat-icon-button matTooltip="Shopping Cart">
+                    <mat-icon>shopping_cart</mat-icon>
+                </button>
+                <div class="flex center-center m-r-15px">
+                <button mat-stroked-button class="white green-bg" (click)="goToLogin()">Login</button>
+                </div>
+            </div>
+        </mat-toolbar>
+    </div>
+    <div class="full-width margin-top-64px make100p column padding-5px border-box center-center flex">
+        <div>
+            <h3>Hi, Guest</h3>
+        </div>
+        <div class="testimonials-container">
+          <mat-card class="testimonial-card text-center padding-5px border-box blue-bg black no-relative hoverTile pointer" *ngFor="let item of menuItems" [routerLink]="[item.route]" routerLinkActive="active" >
+            <div class="full-width center-center flex">
+              <mat-icon>{{item.icon}}</mat-icon>
+            </div>
+            <h4 class="no-margin"><small>{{item.name}}</small></h4>
+          </mat-card>
+        </div>
+        <div class="full-width">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="flex column full-width">
+    <div class="full-width flex gap-1em box2">
+       <div class="flex gap-05em align-center1 light-green-bg white box1">
+        <img src="../../../assets/logo2.png" alt="logo" width="50%">
+        <h3>Loc & Go</h3>
+       </div>
+       <div class="flex column center-center">
+        <h4>Welcome Back, KG</h4>
+       </div>
+    </div>
+    <div class="flex row full-height full-width gap-1em">
+        <div class="wrapper">
+            <div class="flex row gap-05em center-center pointer" routerLink="./dashboard" routerLinkActive="active">
+                <span class="material-symbols-outlined" matTooltip="Home">
+                    home
+                </span>
+                <div class="text-center">
+                    <h4>Home</h4>
+                </div>
+            </div>
+            <div class="flex row gap-05em center-center pointer" routerLink="./manage-booking" routerLinkActive="active">
+                <span class="material-symbols-outlined" matTooltip="Manage Bookings">
+                    edit_document
+                </span>
+                <div class="text-center">
+                    <h4>Manage Bookings</h4>
+                </div>
+            </div>
+            <div class="flex row gap-05em center-center pointer" routerLink="./stylists" routerLinkActive="active">
+                <span class="material-symbols-outlined" matTooltip="Manage Bookings">
+                    styler
+                </span>
+                <div class="text-center">
+                    <h4>Stylists</h4>
+                </div>
+            </div>
+            <div class="flex row gap-05em center-center pointer" routerLink="./reports" routerLinkActive="active">
+                <span class="material-symbols-outlined">
+                    monitoring
+                    </span>
+                <div class="text-center">
+                    <h4>Reports</h4>
+                </div>
+            </div>
+            <div class="flex row gap-05em center-center pointer" (click)="goToLanding()">
+                <span class="material-symbols-outlined">
+                    logout
+                    </span>
+                <div class="text-center">
+                    <h4>Log Out</h4>
+                </div>
+            </div>
+        </div>
+        <div class="full-width">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

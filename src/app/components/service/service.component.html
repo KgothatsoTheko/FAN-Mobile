@@ -1,0 +1,116 @@
+<div class="flex center-center column">
+    <mat-stepper linear #stepper
+  class="full-width"
+  [orientation]="(stepperOrientation | async)!">
+  <mat-step [stepControl]="firstFormGroup" label="Choose a service">
+    <form [formGroup]="firstFormGroup">
+        <mat-radio-group formControlName="firstCtrl" class="full-width wrap flex gap-05em">
+        <mat-card class="width-33p make100w flex column" *ngFor="let item of services">
+            <img src="{{item.src}}" width="100%" alt="service1">
+            <h4 class="no-margin">{{item.title}}</h4>
+            <p class="no-margin">{{item.time}}</p>
+            <div class="flex space-between-center">
+                <p>From R{{item.price}}</p>
+                    <mat-radio-button [value]="item"></mat-radio-button>
+            </div>
+        </mat-card>
+    </mat-radio-group>
+      <div>
+        <button mat-button #stepper (click)="pickedService()">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="Choose a Time & Day">
+    <form [formGroup]="secondFormGroup">
+        <mat-form-field class="full-width">
+            <mat-label>Select Time</mat-label>
+            <mat-select formControlName="time">
+              @for (item1 of times; track item1) {
+                <mat-option [value]="item1.value">{{item1.viewValue}}</mat-option>
+              }
+            </mat-select>
+        </mat-form-field>
+      <mat-calendar [dateFilter]="myFilter" class="full-width" [(selected)]="selected"
+      (selectedChange)="onDateChange($event)"></mat-calendar>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="selectDayTime()">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup" label="Choose professional">
+    <form [formGroup]="thirdFormGroup">
+        <mat-radio-group formControlName="thirdCtrl" class="full-width wrap flex gap-05em">
+            <mat-card class="full-width flex center-center row full-width" *ngFor="let item of sylists">
+                <div class="half-width center-center flex">
+                    <mat-icon>account_circle</mat-icon>
+                </div>
+                <div class="text-center half-width">
+                    <h4 class="no-margin">{{item.name}}</h4>
+                    <p class="no-margin grey">Sylist</p>
+                    <p class="no-margin green">{{item.status}}</p>
+                    <div class="flex end" *ngIf="item.status == 'Available'">
+                        <mat-radio-button [value]="item"></mat-radio-button>
+                    </div>
+                </div>
+            </mat-card>
+        </mat-radio-group>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="pickedStylist()">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step label="Summary">
+    <div class="flex center-center column gap-1em">
+        <div class="flex center-center gap-05em">
+            <img src="../../../assets/logo2.png" alt="logo" width="30%">
+            <h4>Loc & Go</h4>
+        </div>
+        <mat-card class="padding-10px border-box gap-1em">
+            <p class="no-margin">Confirm appointment details:</p>
+            <div class="flex gap-1em">
+                <div class="flex gap-05em">
+                    <mat-icon>account_circle</mat-icon>
+                    <p class="no-margin">{{orderForm.value?.stylist.name}}</p>
+                </div>
+                <div class="flex gap-05em">
+                    <mat-icon>access_time</mat-icon>
+                    <p class="no-margin">{{orderForm.value?.time}}</p>
+                </div>
+            </div>
+            <div class="flex gap-05em">
+                <mat-icon>today</mat-icon>
+                <p class="no-margin">{{orderForm.value?.date}}</p>
+            </div>
+        </mat-card><br>
+    </div>
+    <form [formGroup]="orderForm">
+        <mat-form-field class="full-width">
+            <mat-label>Select Payment Method</mat-label>
+            <mat-select formControlName="paymentMethod">
+              @for (item3 of payments; track item3) {
+                <mat-option [value]="item3.value">{{item3.viewValue}}</mat-option>
+              }
+            </mat-select>
+        </mat-form-field>   
+        <mat-form-field class="full-width">
+            <mat-label>Enter your email</mat-label>
+            <input matInput
+                   placeholder="pat@example.com"
+                   formControlName="email"
+                   required>
+          </mat-form-field>
+    </form>
+    <div>
+    <div class="box padding-5px border-box">
+        <p>Price Breakdown</p>
+        <p class="no-margin">{{orderForm.value?.orderDetails.title}}</p>
+        <p>TOTAL: R{{orderForm.value?.orderDetails.price}}</p>
+    </div>
+    <button mat-button matStepperPrevious>Back</button>
+    <button mat-button (click)="completeOrder()" color="accent">Done</button>
+    </div>
+  </mat-step>
+</mat-stepper>
+</div>

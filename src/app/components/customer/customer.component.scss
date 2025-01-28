@@ -1,0 +1,45 @@
+.m-r-15px {
+    margin-right: 15px !important;
+}
+
+.bolder {
+    font-weight: 700;
+    font-style:bold;
+}
+
+.no-decoration {
+  text-decoration: none;
+}
+
+.testimonials-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1em;
+    padding: 1em;
+    width: 80%;
+  }
+  
+  .testimonial-card {
+    min-width: 50%;
+    border-radius: 8px;
+  }
+  
+  .testimonials-container::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .testimonials-container::-webkit-scrollbar-thumb {
+    background-color: #97abc0;
+    border-radius: 4px;
+  }
+
+  .hoverTile:hover {
+    color: white !important;
+    background-color: #00bf63;
+  }
+
+  .home-bg {
+    background-color: #00bf63;
+    height: 64px;
+  }

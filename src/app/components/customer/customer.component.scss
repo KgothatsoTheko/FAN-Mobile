@@ -43,3 +43,13 @@
     background-color: #00bf63;
     height: 64px;
   }
+
+  @media only screen and (max-width: 600px){
+    .none {
+      display: none !important;
+  }
+
+  .margin-top-24px {
+      margin-top: 24px !important;
+  }
+  }

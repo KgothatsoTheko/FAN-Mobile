@@ -8,6 +8,10 @@
     color: grey;
 }
 
+.fullHeight {
+    height: 100vh;
+}
+
 .bolderText {
     font-size: xx-large;
     font-weight: 800;
@@ -49,6 +53,14 @@
         h2 {
             display: none;
         }
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        margin-bottom: 60px;
+    }
+
+    .makeEnd {
+        align-items: end;
     }
 
     .TopView {

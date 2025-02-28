@@ -8,6 +8,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatStepper } from '@angular/material/stepper';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-service',
@@ -39,60 +40,60 @@ export class ServiceComponent {
   stepperOrientation: Observable<StepperOrientation>;
 
   public services = [
-    {src: "../../../assets/pic1.jpg",
+    {src: "../../../assets/curls.png",
       title: 'French Curls',
       time: '4HRS 20MIN - 6HRS',
       price: '800',
       values: 'Order1'
     },
-    {src: "../../../assets/pic2.jpg",
+    {src: "../../../assets/curls2.png",
       title: 'Bob Curls',
       time: '4HRS 20MIN - 6HRS',
       price: '800',
       values: 'Order2'
     },
-    {src: "../../../assets/pic3.jpg",
+    {src: "../../../assets/braids.png",
       title: 'Knotless Braids',
       time: '4HRS 30MIN - 5HRS',
       price: '850',
       values: 'Order3'
-    },{src: "../../../assets/pic4.jpg",
+    },{src: "../../../assets/braids2.png",
       title: 'Knotless Boha Braids',
       time: '4HRS 30MIN - 5HRS',
       price: '950',
       values: 'Order4'
-    },{src: "../../../assets/pic5.jpg",
+    },{src: "../../../assets/braids3.png",
       title: 'Knotless Braids',
       time: '4HRS 30MIN - 5HRS',
       price: '850',
       values: 'Order5'
-    },{src: "../../../assets/pic6.jpg",
+    },{src: "../../../assets/braids4.png",
       title: 'Bohamian Braids',
       time: '4HRS 30MIN - 8HRS',
       price: '950',
       values: 'Order6'
-    },{src: "../../../assets/pic7.jpg",
+    },{src: "../../../assets/locs.png",
       title: 'Gypsy Locs',
       time: '3HRS 30MIN',
       price: '1200',
       values: 'Order7'
-    },{src: "../../../assets/pic8.jpg",
+    },{src: "../../../assets/braids5.png",
       title: 'Knotless 2/3 Toned Braids',
       time: '4HRS 20MIN - 6HRS',
       price: '1050',
       values: 'Order8'
-    },{src: "../../../assets/pic9.jpg",
+    },{src: "../../../assets/locs2.png",
       title: 'Jozi Lits Faux Locs',
       time: '4HRS 20MIN - 6HRS',
       price: '850',
       values: 'Order9'
-    },{src: "../../../assets/pic10.jpg",
+    },{src: "../../../assets/fulani.png",
       title: 'Bohemian Fulani',
       time: '3HRS 30MIN - 4HRS',
       price: 'R900',
       values: 'Order10'
     },
-    {src: "../../../assets/pic11.jpg",
+    {src: "../../../assets/fulani2.png",
       title: 'Bohemian Fulani',
       time: '3HRS 30MIN - 4HRS',
       price: '900',
@@ -101,37 +102,8 @@ export class ServiceComponent {
   ]
 
   times: any[] = [
-    {value: '08:00', viewValue: '08:00'},
-    {value: '08:15', viewValue: '08:15'},
-    {value: '08:30', viewValue: '08:30'},
-    {value: '08:45', viewValue: '08:45'},
-    {value: '09:00', viewValue: '09:00'},
-    {value: '09:15', viewValue: '09:15'},
-    {value: '09:30', viewValue: '09:30'},
-    {value: '09:45', viewValue: '09:45'},
-    {value: '10:00', viewValue: '10:00'},
-    {value: '10:15', viewValue: '10:15'},
-    {value: '10:30', viewValue: '10:30'},
-    {value: '10:45', viewValue: '10:45'},
-    {value: '11:00', viewValue: '11:00'},
-    {value: '11:15', viewValue: '11:15'},
-    {value: '11:30', viewValue: '11:30'},
-    {value: '11:45', viewValue: '11:45'},
-    {value: '12:00', viewValue: '12:00'},
-    {value: '12:15', viewValue: '12:15'},
-    {value: '12:30', viewValue: '12:30'},
-    {value: '12:45', viewValue: '12:45'},
-    {value: '13:00', viewValue: '13:00'},
-    {value: '13:15', viewValue: '13:15'},
-    {value: '13:30', viewValue: '13:30'},
-    {value: '13:45', viewValue: '13:45'},
-    {value: '14:00', viewValue: '14:00'},
-    {value: '14:15', viewValue: '14:15'},
-    {value: '14:30', viewValue: '14:30'},
-    {value: '14:45', viewValue: '14:45'},
-    {value: '15:00', viewValue: '15:00'},
-    {value: '15:15', viewValue: '15:15'},
-    {value: '15:30', viewValue: '15:30'},
+    {value: 'Morning (08:00 - 09:00)', viewValue: 'Morning (08:00 - 09:00)'},
+    {value: 'Evening (12:00 - 13:00)', viewValue: 'Evening (12:00 - 13:00)'},
   ];
 
   payments: any[] = [
@@ -148,7 +120,8 @@ export class ServiceComponent {
   constructor(
     private _formBuilder: FormBuilder,
     breakpointObserver: BreakpointObserver,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private router: Router
   ) {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
@@ -173,7 +146,7 @@ export class ServiceComponent {
         date: new FormControl(''),
         time: new FormControl(''),
         stylist: new FormControl(''),
-        email: new FormControl(''),
+        phone: new FormControl(''),
         paymentMethod: new FormControl(''),
       })
   }
@@ -183,12 +156,15 @@ export class ServiceComponent {
     if (!selectedService) {
       this.snackbar.open('Please select a service', 'Ok', { duration: 3000 });
     } else {
-      console.log('Selected Service:', selectedService); // Logs the selected service value
       // this.orderForm.value.orderDetails = selectedService
       this.orderForm.patchValue({ orderDetails: selectedService }); // Update orderForm
       this.stepper.next()
     }
     
+  }
+
+  goBack() {
+    this.router.navigate(['/customer/home'])
   }
 
   onDateChange(event: any): void {
@@ -216,7 +192,6 @@ export class ServiceComponent {
       this.snackbar.open('Please select a Day & Time', 'Ok', { duration: 3000 });
     } else {
 
-      console.log('updated second form:', updatedSecondForm);
       // this.orderForm.value.date = updatedSecondForm.secondCtrl
       // this.orderForm.value.time = updatedSecondForm.time
       this.orderForm.patchValue({ date, time: selectedTime }); // Update orderForm
@@ -230,7 +205,6 @@ export class ServiceComponent {
     if (!selectedProfessional) {
       this.snackbar.open('Please select a Professional', 'Ok', { duration: 3000 });
     } else {
-      console.log('Selected Professional:', selectedProfessional); // Logs the selected service value
       // this.orderForm.value.stylist = selectedProfessional
       this.orderForm.patchValue({ stylist: selectedProfessional }); // Update orderForm
       this.stepper.next()
@@ -238,10 +212,46 @@ export class ServiceComponent {
     
   }
 
+  generateWhatsAppMessage(): string {
+    const order = this.orderForm.value;
+
+    // Construct the message
+    const message = `New Order Details:\n\n` +
+      `Service: ${order.orderDetails.title}\n` +
+      `Price: R${order.orderDetails.price}\n` +
+      `Date: ${order.date}\n` +
+      `Time: ${order.time}\n` +
+      `Phone: 0${order.phone}\n` +
+      `Payment Method: ${order.paymentMethod}\n`;
+
+    return encodeURIComponent(message); // Encode the message for URL
+  }
+
+  openWhatsApp() {
+    const phoneNumber = '27727470809'; // Replace with the actual phone number
+    const message = this.generateWhatsAppMessage();
+  
+    // Detect if the user is on a mobile device
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+  // Create the WhatsApp link based on the device
+  const whatsappLink = isMobile
+    ? `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}` // For mobile devices
+    : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}`; // For desktop devices
+  
+    // Open the link in a new tab
+    window.open(whatsappLink, '_blank');
+  }
+
   completeOrder() {
     const order = this.orderForm.value
     console.log('Order:', order); // Logs the selected service value
+
+    // Open WhatsApp with the order details
+    this.openWhatsApp();
+
     this.stepper.reset()
+    this.router.navigate(['/customer/home'])
   }
 
 }

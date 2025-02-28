@@ -1,9 +1,44 @@
-.width-33p {
-    width: 32%;
+.width-24p {
+    width: 24%;
 }
 
 .box {
     border: 1px solid black;
+}
+
+.border1 {
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.nextBtn {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.doneBtn {
+    background-color: #00bf63;
+    color: black;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.backBtn {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
 .grey {

@@ -17,9 +17,9 @@ export const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'customer', component: CustomerComponent, children: [
         {path: 'home', component: HomeComponent},
-        {path: 'service', component: ServiceComponent},
-        {path: 'appointments', component: AppointmentsComponent},
     ]},
+    {path: 'service', component: ServiceComponent},
+    {path: 'appointments', component: AppointmentsComponent},
     {path: 'admin', component: AdminComponent, children: [
         {path: 'dashboard', component: DashboardComponent},
         {path: 'manage-booking', component: ManageBookingComponent},

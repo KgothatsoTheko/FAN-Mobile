@@ -1,3 +1,6 @@
+<div class="padding-10px flex border-box pointer" (click)="goBack()">
+  <mat-icon class="border1">keyboard_arrow_left</mat-icon>
+</div>
 <div class="flex center-center column">
     <mat-stepper linear #stepper
   class="full-width"
@@ -5,7 +8,7 @@
   <mat-step [stepControl]="firstFormGroup" label="Choose a service">
     <form [formGroup]="firstFormGroup">
         <mat-radio-group formControlName="firstCtrl" class="full-width wrap flex gap-05em">
-        <mat-card class="width-33p make100w flex column" *ngFor="let item of services">
+        <mat-card class="width-24p make100w flex column" *ngFor="let item of services">
             <img src="{{item.src}}" width="100%" alt="service1">
             <h4 class="no-margin">{{item.title}}</h4>
             <p class="no-margin">{{item.time}}</p>
@@ -14,9 +17,9 @@
                     <mat-radio-button [value]="item"></mat-radio-button>
             </div>
         </mat-card>
-    </mat-radio-group>
-      <div>
-        <button mat-button #stepper (click)="pickedService()">Next</button>
+    </mat-radio-group><br>
+      <div class="flex center-center">
+        <button #stepper (click)="pickedService()" class="nextBtn">Next</button>
       </div>
     </form>
   </mat-step>
@@ -30,15 +33,15 @@
               }
             </mat-select>
         </mat-form-field>
-      <mat-calendar [dateFilter]="myFilter" class="full-width" [(selected)]="selected"
+      <mat-calendar [dateFilter]="myFilter" class="half-width make100w" [(selected)]="selected"
       (selectedChange)="onDateChange($event)"></mat-calendar>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="selectDayTime()">Next</button>
+      <div class="flex center-center gap-1em">
+        <button matStepperPrevious class="backBtn">Back</button>
+        <button (click)="selectDayTime()" class="nextBtn">Next</button>
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="thirdFormGroup" label="Choose professional">
+  <!-- <mat-step [stepControl]="thirdFormGroup" label="Choose professional">
     <form [formGroup]="thirdFormGroup">
         <mat-radio-group formControlName="thirdCtrl" class="full-width wrap flex gap-05em">
             <mat-card class="full-width flex center-center row full-width" *ngFor="let item of sylists">
@@ -60,20 +63,19 @@
         <button mat-button (click)="pickedStylist()">Next</button>
       </div>
     </form>
-  </mat-step>
+  </mat-step> -->
   <mat-step label="Summary">
     <div class="flex center-center column gap-1em">
-        <div class="flex center-center gap-05em">
-            <img src="../../../assets/logo2.png" alt="logo" width="30%">
-            <h4>Loc & Go</h4>
+        <div class="flex center-center">
+            <img src="../../../assets/fan-logo-white-removebg-preview.png" alt="logo" width="50%">
         </div>
         <mat-card class="padding-10px border-box gap-1em">
             <p class="no-margin">Confirm appointment details:</p>
             <div class="flex gap-1em">
-                <div class="flex gap-05em">
+                <!-- <div class="flex gap-05em">
                     <mat-icon>account_circle</mat-icon>
                     <p class="no-margin">{{orderForm.value?.stylist.name}}</p>
-                </div>
+                </div> -->
                 <div class="flex gap-05em">
                     <mat-icon>access_time</mat-icon>
                     <p class="no-margin">{{orderForm.value?.time}}</p>
@@ -95,10 +97,13 @@
             </mat-select>
         </mat-form-field>   
         <mat-form-field class="full-width">
-            <mat-label>Enter your email</mat-label>
-            <input matInput
-                   placeholder="pat@example.com"
-                   formControlName="email"
+            <mat-label>Enter your phone number</mat-label>
+            <span matTextPrefix>+27 &nbsp;</span>
+            <input matInput type="text"
+            oninput="this.value = this.value.replace(/[^\d]/g, '')"
+                   placeholder="71 553 4322"
+                   formControlName="phone"
+                   maxlength="9"
                    required>
           </mat-form-field>
     </form>
@@ -107,9 +112,11 @@
         <p>Price Breakdown</p>
         <p class="no-margin">{{orderForm.value?.orderDetails.title}}</p>
         <p>TOTAL: R{{orderForm.value?.orderDetails.price}}</p>
+    </div><br>
+    <div class="flex center-center gap-1em">
+      <button matStepperPrevious class="backBtn">Back</button>
+      <button (click)="completeOrder()" class="doneBtn">Done</button>
     </div>
-    <button mat-button matStepperPrevious>Back</button>
-    <button mat-button (click)="completeOrder()" color="accent">Done</button>
     </div>
   </mat-step>
 </mat-stepper>

@@ -30,7 +30,11 @@ export class LoginComponent {
       console.log('Email:', emailForm)
       // Send to backend
       // navigate page
-      this.router.navigate(['admin/dashboard'])
+      if(emailForm.email == 'admin1@gmail.com'){
+        this.router.navigate(['admin/dashboard'])
+      } else {
+      this.snackbar.open('Admin Only!!', 'Ok', {duration: 3000}) 
+      }
     } else {
       this.snackbar.open('Enter vaild email address', 'Ok', {duration: 3000})
     }

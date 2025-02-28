@@ -16,17 +16,17 @@ export class CustomerComponent {
     {
       name: "Book Service",
       icon: "add_location",
-      route: '/customer/service'
+      route: '/service'
     },
     {
       name: "Appointments",
       icon: "events",
-      route: '/customer/appointments'
+      route: '/appointments'
     },
     {
       name: "Rate",
       icon: "stars",
-      route: '/customer/rate'
+      route: '/rate'
     },
   ]
 

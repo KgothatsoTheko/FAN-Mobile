@@ -1,11 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Poppins', serif, "Helvetica Neue", sans-serif; }
-
 //colors
 $light-green: #00bf63;
-$green: #0f4143;
-$orange: #da6124;
+$green: #009e47;
+$orange: #fca311;
 $black: #000000;
 $white: #fff;
 
@@ -109,6 +108,19 @@ $white: #fff;
     padding: 20px;
 }
 
+// font sizes
+.font-size-80px {
+    font-size: 75px;
+}
+
+.font-size-46px {
+    font-size: 46px;
+}
+
+.font-size-40px {
+    font-size: 40px;
+}
+
 // margin
 .no-margin {
     margin: 0 !important;
@@ -188,6 +200,10 @@ $white: #fff;
     border-radius: 20px;
 }
 
+.line {
+    text-decoration: underline;
+}
+
 .round {
     border-radius: 50%;
 }
@@ -200,6 +216,10 @@ $white: #fff;
 
 .green-bg {
     background-color: $green !important;
+}
+
+.white-bg {
+    background-color: $white !important;
 }
 
 .light-green-bg {

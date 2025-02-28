@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../modules/material/material.module';
-import { SliderComponent } from "../slider/slider.component";
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [MaterialModule, SliderComponent, RouterLink],
+  imports: [MaterialModule, CommonModule, MatIconModule],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss'
 })
@@ -37,7 +38,7 @@ export class LandingComponent {
   }
 
   goToBooking() {
-    this.router.navigate(['customer/service'])
+    this.router.navigate(['service'])
   }
 
 

@@ -2,9 +2,9 @@
     <div class="end flex makeWhite pointer padding-5px border-box absolute middleView TopView" (click)="goBack()">
         <mat-icon>chevron_left</mat-icon>
     </div>
-    <div class="flex row full-width">
-        <div class="half-width smaller light-green-bg no-green1">
-            <img src="../../../assets/FAN-Mobile-Logo-Black-removebg-preview.png" width="100%" alt="logo" class="relative op-08">
+    <div class="flex row full-width fullHeight makeEnd">
+        <div class="half-width flex center-center smaller light-green-bg no-green1">
+            <img src="../../../assets/fan-logo-white.jpg" width="50%" alt="logo" class="relative round op-08">
             <h2 class="absolute t-5 white">FAN Mobile</h2>
         </div>
         <div class="half-width make100p addz-index padding-10px border-box">
@@ -14,7 +14,7 @@
                     <h3 class="no-margin">Log in or sign up</h3>
                     <p class="no-margin"><small>Please log in to your account</small></p>
                 </div>
-                <div class="flex full-width center-center border2 border1">
+                <div class="flex full-width center-center border2 border1" matTooltip="Coming Soon">
                     <button mat-icon-button class="flex full-width gap-1em row center-center">
                         <i class="fa fa-google"></i>
                         <small>Continue with Google</small>
@@ -31,7 +31,7 @@
                         <input type="email" matInput required formControlName="email">
                     </mat-form-field>
                 </form>
-                <button mat-stroked-button class="white green-bg full-width" (click)="loginBtn()">Sign Up</button>
+                <button mat-stroked-button class="white green-bg full-width" (click)="loginBtn()">Login</button>
             </div>
         </div>
     </div>

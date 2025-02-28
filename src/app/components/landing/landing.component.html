@@ -1,86 +1,180 @@
-<div class="full-width flex column pop full-height">
-    <div class="main-container">
-        <mat-toolbar class="full-width flex space-between-center no-padding margin-top-10px margin-top-24px">
-            <div class="flex row">
-                <a [routerLink]="['/landing']" class="flex row no-decoration gap-1em">
-                    <div class="full-width flex">
-                        <img src="../../../assets/FAN-Mobile-Logo-Black-removebg-preview.png" alt="logo" width="100%" height="100px">
-                    </div>
-                    <div class="flex column center-center none">
-                        <h4 class="no-margin white bolder">FAN Mobile</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="flex row white">
-                <button mat-icon-button matTooltip="Home" (click)="goHome()">
+<div class="flex column green-bg white full-width">
+    <header>
+        <div class="logo">
+            <!-- make image transparent -->
+            <img class="round" src="../../../assets/fan-logo-white.jpg" alt="FAN Mobile Salon" width="20%">
+            <h1>FAN <span>Mobile Salon</span></h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><button mat-icon-button matTooltip="Home" (click)="goHome()">
                     <mat-icon>home</mat-icon>
                 </button>
-                <button mat-icon-button matTooltip="Shopping Cart">
-                    <mat-icon>shopping_cart</mat-icon>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <button mat-icon-button matTooltip="Menu" [matMenuTriggerFor]="menu">
+                    <mat-icon>menu</mat-icon>
                 </button>
-                <div class="flex center-center m-r-15px">
-                    <button mat-stroked-button class="white green-bg" (click)="goToLogin()">Login</button>
-                </div>
-                <!-- <mat-divider></mat-divider>
-                <button mat-icon-button matTooltip="Wishlist">
-                    <mat-icon>favorite</mat-icon>
-                </button>
-                <button mat-icon-button matTooltip="Shopping Cart">
-                    <mat-icon>shopping_cart</mat-icon>
-                </button> -->
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="goHome()">
+                      <mat-icon>home</mat-icon>
+                      <span>Home</span>
+                    </button>
+                    <button mat-menu-item (click)="goToBooking()">
+                      <mat-icon>shopping_cart</mat-icon>
+                      <span>Book Now</span>
+                    </button>
+                  </mat-menu>
             </div>
-    </mat-toolbar>
-        <!-- Banner -->
-        <div class="banner">
-            <div class="banner-content white">
-                <h2>Welcome to <br><span class="light-green">FAN Mobile</span></h2>
-                <p>Convient mobile beauty services, <br> HAIR </p>
-                <div class="flex center-center">
-                    <button mat-stroked-button class="white green-bg" (click)="goToBooking()">Book Now</button>
-                </div>
+        </nav>
+    </header>
+    
+    <section class="hero flex">
+        <div class="content">
+            <h2 class="text-center">YOUR HAIR, YOUR TIME, YOUR PLACE</h2>
+            <h1 class="text-center">Welcome to FAN Mobile Salon</h1>
+            <div class="flex center-center gap-1em">
+                <p>Style at your doorstep</p>
+                <button class="cta" (click)="goToBooking()">Book Now</button>
+            </div><br>
+        </div>
+        <div class="image-container">
+            <img src="../../../assets/home2.png" alt="Braided Hairstyle">
+            <!-- <div class="shape"></div> -->
+            <div class="star"></div>
+        </div>
+    </section>
+
+    <div class="flex column green-bg gap-1em full-width">
+        <h3 class="text-center black">Featured Hair Catagories</h3>
+
+        <div class="flex row wrap gap-1em center-center full-width padding-10px border-box">
+            <div class="flex center-center gap-1em column width-33p make100p">
+                <img class="gallery-image" div-image src="../../../assets/land1.jpeg" alt="braids" width="100%">
+                <h3>
+                    Bohemian Braids
+                </h3>
+            </div>
+            <div class="flex center-center gap-1em column width-33p make100p">
+                <img class="gallery-image" div-image src="../../../assets/land3.jpg" alt="locs" width="100%">
+                <h3>
+                    Locs
+                </h3>
+            </div>
+            <div class="flex center-center gap-1em column width-33p make100p">
+                <img class="gallery-image" div-image src="../../../assets/land4.jpg" alt="fulani" width="100%">
+                <h3>
+                    Bohemian Fulani
+                </h3>
+            </div>
+            <div class="flex center-center gap-1em column width-33p make100p">
+                <img class="gallery-image" div-image src="../../../assets/land5.jpeg" alt="curls" width="100%">
+                <h3>
+                    Curls
+                </h3>
+            </div>
+            <div class="flex center-center gap-1em column width-33p make100p">
+                <img class="gallery-image" div-image src="../../../assets/land6.jpg" alt="curls" width="100%">
+                <h3>
+                    Straight Up Cornrows
+                </h3>
             </div>
         </div>
 
-        <!-- Featured -->
-        <section class="p-1em">
-            <h2 class="text-center m-b-1em">Featured</h2>
-            <div class="row flex end con1">
-                <div class="container make100p">
-                    <app-slider [slides]="slides"></app-slider>
+        <div class="flex center-center">
+            <button class="cta" (click)="goToBooking()">View Menu</button>
+        </div><br>
+    </div>
+
+    <div class="flex row full-width wallpaper1 makeColumn">
+        <div class="half-width make100p flex column center1">
+            <h3 class="text-center font-size-80px makefont-size-46px green">Braiding simplified</h3>
+            <h2 class="text-center line font-size-80px makefont-size-46px">Fresh</h2>
+            <h2 class="text-center line font-size-80px makefont-size-46px">Affordable</h2>
+            <h2 class="text-center line font-size-80px makefont-size-46px">Near <strong>You!</strong></h2>
+        </div>
+        <div class="half-width make100p flex column center-center padding-10px border-box">
+            <p class="orrange">
+                At FAN Mobile Salon, there’s no need to
+                rush. Picture peaceful and uncrowded
+                sessions, countless options of your
+                favorite hairstyles, and a smooth
+                checkout process. Sit back, relax, and
+                enjoy your seamless experience.
+            </p><br>
+            <!-- <button class="cta">Learn More</button> -->
+        </div>
+    </div>
+
+    <div class="flex row full-width makeColumn">
+        <div class="half-width make100p light-green-bg padding-10px border-box flex column center-center">
+            <img src="../../../assets/op1.png" alt="op1" width="50%">
+            <h3 class="black">New Arrivals</h3>
+            <p class="black">Discover the latest trends in mobile
+                hair services! From fresh styles to
+                cutting-edge treatments, our newest
+                additions ensure you stay ahead of the
+                beauty game—wherever you are.
+            </p>
+        </div>
+        <div class="half-width flex white-bg padding-10px border-box center-center column gap-1em make100p">
+            <div class="row flex gap-1em">
+                <div>
+                    <img src="../../../assets/op2.png" alt="op2">
                 </div>
-                <div class="text-center flex column container make100p">
-                    <section>
-                        <h3 class="text-center">About</h3>
-                        <p>Experience beauty and grooming services in the comfort of your own home. Simply let us know when and where you need our skilled professionals, and we’ll take care of the rest. Sit back, relax, and enjoy the convenience of top-notch service at your doorstep. With our highly trained specialists on our team, we ensure exceptional quality tailored to your needs.</p>
-                    </section>
-                    <section>
-                        <h3 class="text-center">How To Get Started:</h3>
-                        <p>Follow Our simple and efficient booking process here:</p>
-                        <div class="center-center flex">
-                            <button mat-stroked-button class="white green-bg" (click)="goToBooking()">Book Now</button>
-                        </div>
-                        <p class="text-center">OR</p>
-                        <p>Use WhatsApp or Instagram</p>
-                        <div class="row flex center-center gap-2em">
-                            <div>
-                                <a class="no-decoration" href="https://www.instagram.com/fanmobilesalon?igsh=MXVlanR4dWE0eWx2Zg=="><i class="fa fa-instagram" style="font-size:35px"></i></a>
-                            </div>
-                            <div>
-                                <a class="no-decoration" href="https://wa.me/27727470809?text=Hello%20I%20want%20to%20book%20an%20appointment">
-                                    <i class="fa fa-whatsapp" style="font-size:35px"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </section>
+                <div>
+                    <h3 class="black">Embrance the year well</h3>
+                    <p class="black">
+                        New year, new look! Kickstart
+                        your year with a fresh
+                        hairstyle that boosts
+                        confidence and sets the tone
+                        for success. Book your mobile
+                        hair appointment today!
+                    </p>
                 </div>
             </div>
-        </section>
-
-        <!-- Featured Products -->
-        <!-- <section>
-            <h2 class="text-center m-b-1em">Featured Products</h2>
-            <app-slider [cardType]="'square'" [data]="featuredProducts"></app-slider>
-        </section> -->
+            <div class="row flex gap-1em">
+                <div>
+                    <img src="../../../assets/op3.png" alt="op3">
+                </div>
+                <div>
+                    <h3 class="black">Best Sellers</h3>
+                    <p class="black">
+                        Our most-loved hair services,
+                        trusted by clients for flawless
+                        results! From sleek cuts to
+                        rejuvenating treatments,
+                        experience top-rated styles
+                        delivered straight to you.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div class="flex column full-width wallpaper3">
+        <div class="full-width flex column">
+            <img class="round" src="../../../assets/fan-logo-white.jpg" alt="FAN Mobile Salon" width="15%">
+        </div>
+        <div class="full-width flex column gap-1em center-center white">
+            <h3>FAN Mobile Salon</h3>
+            <h2 class="text-center">Let’s connect, let’s
+                get social</h2>
+            <button class="cta" (click)="goToBooking()">Book Now</button>
+            <h2 class="text-center">Get social</h2>
+            <div class="row flex center-center gap-2em">
+                <div>
+                    <a class="white no-decoration" href="https://www.instagram.com/fanmobilesalon?igsh=MXVlanR4dWE0eWx2Zg=="><i class="fa fa-instagram" style="font-size:35px"></i></a>
+                </div>
+                <div>
+                    <a class="white no-decoration" href="https://wa.me/27727470809?text=Hello%20I%20want%20to%20book%20an%20appointment">
+                        <i class="fa fa-whatsapp" style="font-size:35px"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
-  

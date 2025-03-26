@@ -21,6 +21,18 @@ $white: #fff;
     width: 20%;
 }
 
+.width-15p {
+    width: 15%;
+}
+
+.width-23p {
+    width: 23%;
+}
+
+.half-max-width {
+    max-width: 50%;
+}
+
 .half-width {
     width: 50%;
 }
@@ -290,6 +302,14 @@ mat-toolbar {
 
     mat-divider {
         border-top-color: #ffffff !important;
+    }
+
+    .makeColumn {
+        flex-direction: column !important;
+    }
+
+    .make100w {
+        width: 100%;
     }
     
 }

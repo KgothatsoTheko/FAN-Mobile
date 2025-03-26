@@ -20,7 +20,7 @@ import { Router } from '@angular/router';
 })
 export class ServiceComponent {
 
-  @ViewChild('stepper') stepper!: MatStepper
+  @ViewChild('stepper') stepper!: MatStepper  
 
   selected!: Date | null;
 
@@ -102,8 +102,8 @@ export class ServiceComponent {
   ]
 
   times: any[] = [
-    {value: 'Morning (08:00 - 09:00)', viewValue: 'Morning (08:00 - 09:00)'},
-    {value: 'Evening (12:00 - 13:00)', viewValue: 'Evening (12:00 - 13:00)'},
+    {value: 'Morning (09:00)', viewValue: 'Morning (09:00)'},
+    {value: 'Evening (13:00)', viewValue: 'Evening (13:00)'},
   ];
 
   payments: any[] = [
@@ -152,6 +152,9 @@ export class ServiceComponent {
   }
 
   pickedService() {
+    if (this.firstFormGroup.valid) {
+      this.stepper.next(); // Move to the next step automatically
+    }
     const selectedService = this.firstFormGroup.value.firstCtrl;
     if (!selectedService) {
       this.snackbar.open('Please select a service', 'Ok', { duration: 3000 });

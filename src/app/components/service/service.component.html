@@ -7,9 +7,9 @@
   [orientation]="(stepperOrientation | async)!">
   <mat-step [stepControl]="firstFormGroup" label="Choose a service">
     <form [formGroup]="firstFormGroup">
-        <mat-radio-group formControlName="firstCtrl" class="full-width wrap flex gap-05em">
-        <mat-card class="width-24p make100w flex column" *ngFor="let item of services">
-            <img src="{{item.src}}" width="100%" alt="service1">
+        <mat-radio-group formControlName="firstCtrl" (change)="pickedService()" class="full-width wrap flex gap-05em">
+        <mat-card class="width-15p height-300px make100w flex column" *ngFor="let item of services">
+            <img src="{{item.src}}" width="100%" height="65%" alt="service1">
             <h4 class="no-margin">{{item.title}}</h4>
             <p class="no-margin">{{item.time}}</p>
             <div class="flex space-between-center">
@@ -17,27 +17,26 @@
                     <mat-radio-button [value]="item"></mat-radio-button>
             </div>
         </mat-card>
-    </mat-radio-group><br>
-      <div class="flex center-center">
-        <button #stepper (click)="pickedService()" class="nextBtn">Next</button>
-      </div>
+        </mat-radio-group>
     </form>
   </mat-step>
   <mat-step [stepControl]="secondFormGroup" label="Choose a Time & Day">
-    <form [formGroup]="secondFormGroup">
-        <mat-form-field class="full-width">
-            <mat-label>Select Time</mat-label>
-            <mat-select formControlName="time">
-              @for (item1 of times; track item1) {
-                <mat-option [value]="item1.value">{{item1.viewValue}}</mat-option>
-              }
-            </mat-select>
-        </mat-form-field>
+    <form [formGroup]="secondFormGroup" class="flex makeColumn full-width">
       <mat-calendar [dateFilter]="myFilter" class="half-width make100w" [(selected)]="selected"
       (selectedChange)="onDateChange($event)"></mat-calendar>
+      <div class="full-width make100w">
+        <mat-form-field class="full-width">
+          <mat-label>Select Time</mat-label>
+          <mat-select formControlName="time">
+            @for (item1 of times; track item1) {
+              <mat-option [value]="item1.value">{{item1.viewValue}}</mat-option>
+            }
+          </mat-select>
+      </mat-form-field>
       <div class="flex center-center gap-1em">
         <button matStepperPrevious class="backBtn">Back</button>
         <button (click)="selectDayTime()" class="nextBtn">Next</button>
+      </div>
       </div>
     </form>
   </mat-step>
@@ -65,7 +64,7 @@
     </form>
   </mat-step> -->
   <mat-step label="Summary">
-    <div class="flex center-center column gap-1em">
+    <div class="flex center-center row makeColumn gap-1em">
         <div class="flex center-center">
             <img src="../../../assets/fan-logo-white-removebg-preview.png" alt="logo" width="50%">
         </div>
@@ -87,8 +86,8 @@
             </div>
         </mat-card><br>
     </div>
-    <form [formGroup]="orderForm">
-        <mat-form-field class="full-width">
+    <form [formGroup]="orderForm" class="full-width makeColumn flex gap-1em">
+        <mat-form-field class="half-width make100w">
             <mat-label>Select Payment Method</mat-label>
             <mat-select formControlName="paymentMethod">
               @for (item3 of payments; track item3) {
@@ -96,8 +95,8 @@
               }
             </mat-select>
         </mat-form-field>   
-        <mat-form-field class="full-width">
-            <mat-label>Enter your phone number</mat-label>
+        <mat-form-field class="half-width make100w">
+            <!-- <mat-label>61 553 4322</mat-label> -->
             <span matTextPrefix>+27 &nbsp;</span>
             <input matInput type="text"
             oninput="this.value = this.value.replace(/[^\d]/g, '')"

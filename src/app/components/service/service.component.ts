@@ -103,7 +103,7 @@ export class ServiceComponent {
 
   times: any[] = [
     {value: 'Morning (09:00)', viewValue: 'Morning (09:00)'},
-    {value: 'Evening (13:00)', viewValue: 'Evening (13:00)'},
+    {value: 'Afternoon (13:00)', viewValue: 'Afternoon (13:00)'},
   ];
 
   payments: any[] = [

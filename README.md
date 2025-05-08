@@ -51,4 +51,4 @@ For collaboration, feedback, or fan partnerships:
 
 ---
 
-Thank you for supporting **Fan Mobile** — where fans come first.
+Thanks for choosing **Fan Mobile** — professional hair care, wherever you are.

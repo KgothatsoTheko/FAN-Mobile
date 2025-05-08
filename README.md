@@ -1,27 +1,54 @@
-# StyleOnWheels
+# Fan Mobile
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.11.
+Welcome to **Fan Mobile** — style right at your doorstep. Mobile hair salon service, hair done at your place, your time.
 
-## Development server
+🌐 **Live Site**: [fan-mobile.web.app](https://fan-mobile.web.app/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 💇‍♀️ About Fan Mobile
 
-## Code scaffolding
+**Fan Mobile** redefines convenience and style by offering professional salon services on the go. Whether you're at home, at work, or preparing for a special event, we bring the salon experience to you.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### What We Offer:
+- Mobile haircuts and styling for all hair types
+- On-site grooming for events, weddings, and more
+- Booking flexibility through our easy-to-use platform
 
-## Build
+## 🚀 Features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Clean and intuitive mobile-first design
+- Optimized for fast performance on all devices
+- Easy-to-navigate interface
+- Scalable for future content and community features
+- Fast and easy booking system
+- Social media channels
 
-## Running unit tests
+## 🛠️ Built With
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Frontend**: Angualr, TypeScript, SCSS
+- **Framework**: Firebase Hosting (Web App)
 
-## Running end-to-end tests
+## 📸 Screenshots
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+![1](https://github.com/user-attachments/assets/4b00dc3f-4508-4fd9-a7ef-59b730b89763)
 
-## Further help
+![6](https://github.com/user-attachments/assets/21ff671b-f8aa-43f7-a650-43ab5ad23260)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![2](https://github.com/user-attachments/assets/dc04014e-3f35-4c97-827d-bcbf0fdb58c8)
+
+![3](https://github.com/user-attachments/assets/d7973fd2-331f-4ff4-8f4b-894f9b2c4d4f)
+
+![4](https://github.com/user-attachments/assets/c28350dd-9fea-419a-bd77-539953c99fca)
+
+![5](https://github.com/user-attachments/assets/6ca9851c-3414-42b3-a22d-71629ff3c915)
+
+![7](https://github.com/user-attachments/assets/6467d83e-67be-45ed-ba13-ccf852b874e4)
+
+## 📬 Contact
+
+For collaboration, feedback, or fan partnerships:
+
+📧 Email: 
+
+---
+
+Thank you for supporting **Fan Mobile** — where fans come first.
